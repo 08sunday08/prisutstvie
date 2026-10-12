@@ -1,0 +1,130 @@
+{
+  "technicians": [
+    {
+      "id": "igor",
+      "name": "Игорь Румянцев",
+      "role": "Техник",
+      "present": true,
+      "work_status": "free",
+      "status_text": "Готов помочь",
+      "schedule": {
+        "days": [
+          "Пн",
+          "Вт",
+          "Ср",
+          "Чт",
+          "Пт"
+        ],
+        "from": "09:00",
+        "to": "13:30"
+      },
+      "last_status_update": "2026-10-02T01:31:02"
+    },
+    {
+      "id": "ilia",
+      "name": "Илья",
+      "role": "Техник",
+      "present": true,
+      "work_status": "free",
+      "status_text": "Готов помочь",
+      "schedule": {
+        "days": [
+          "Пн",
+          "Вт",
+          "Ср",
+          "Чт",
+          "Пт",
+          "Сб"
+        ],
+        "from": "08:00",
+        "to": "17:00"
+      },
+      "last_status_update": "2026-10-02T01:31:27"
+    }
+  ],
+  "requests": [
+    {
+      "id": 4,
+      "title": "21",
+      "room": "2",
+      "author": "wxw",
+      "description": "",
+      "priority": "Обычно",
+      "status": "new",
+      "assignee": "",
+      "completed_by": "",
+      "completed_at": "",
+      "created_at": "Сегодня, 01:23",
+      "updated_at": "Сегодня, 01:23",
+      "comments": [],
+      "history": [
+        {
+          "at": "2026-10-02T01:23:49",
+          "text": "Заявка создана",
+          "by": "wxw"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "не работает принтер",
+      "room": "4",
+      "author": "Мансурова",
+      "description": "",
+      "priority": "Обычно",
+      "status": "new",
+      "assignee": "",
+      "completed_by": "",
+      "completed_at": "",
+      "created_at": "Сегодня, 01:22",
+      "updated_at": "Сегодня, 01:22",
+      "comments": [],
+      "history": [
+        {
+          "at": "2026-10-02T01:22:51",
+          "text": "Заявка создана",
+          "by": "Мансурова"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "не работает принтер",
+      "room": "4",
+      "author": "Мансурова",
+      "description": "",
+      "priority": "Срочно",
+      "status": "done",
+      "assignee": "Игорь Румянцев",
+      "completed_by": "Игорь Румянцев",
+      "completed_at": "2026-10-01T11:28:16",
+      "created_at": "Сегодня, 10:42",
+      "updated_at": "Сегодня, 11:28"
+    },
+    {
+      "id": 1,
+      "title": "не работает принтер",
+      "room": "4",
+      "author": "Мансурова",
+      "description": "",
+      "priority": "Обычно",
+      "status": "done",
+      "assignee": "Игорь Румянцев",
+      "completed_by": "Игорь Румянцев",
+      "completed_at": "2026-10-01T10:42:00",
+      "created_at": "Сегодня, 10:30",
+      "updated_at": "Сегодня, 10:42"
+    }
+  ],
+  "next_id": 5,
+  "accounts": {
+    "IgorDobro": {
+      "password": "KompKlass20@@",
+      "id": "igor"
+    },
+    "Ilia": {
+      "password": "KompKlass20@@",
+      "id": "ilia"
+    }
+  }
+}

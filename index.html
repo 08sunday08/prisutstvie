@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Техподдержка | Одинцовский техникум</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="#">
+        <span class="brand-mark">ОТ</span>
+        <span><strong>Техподдержка</strong><small>Одинцовский техникум</small></span>
+      </a>
+      <div class="network-pill"><i></i> Локальная сеть</div>
+      <div class="new-count-pill">Новые <b id="global-new-count">0</b></div>
+      <button class="theme-button" id="theme-toggle" type="button" aria-label="Переключить тему">Светлая тема</button>
+      <a class="dispatcher-link" href="/dispatcher.html">Кабинет распределителя</a>
+      <div class="role-switch" aria-label="Режим просмотра">
+        <button class="role-button active" data-role="teacher">Преподаватель</button>
+        <button class="role-button" data-role="tech">Техник</button>
+        <button class="role-button" data-role="admin">Администратор</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="intro">
+        <div>
+          <p class="eyebrow">Служба на связи <span id="current-time"></span></p>
+          <h1>Чем можем помочь?</h1>
+          <p class="lead">Посмотрите, кто сейчас на месте, и оставьте заявку. Мы увидим её сразу.</p>
+          <p class="daily-summary" id="daily-summary" hidden>
+            Сегодня выполнено: <strong id="daily-count">0</strong>
+          </p>
+        </div>
+        <button class="primary-button" id="new-request"><span>+</span> Новая заявка</button>
+      </section>
+
+      <section class="tech-dashboard" id="tech-dashboard" hidden>
+        <div class="section-heading">
+          <div><p class="eyebrow">Кабинет техника</p><h2>Рабочая статистика</h2></div>
+        </div>
+        <div class="my-presence-card">
+          <div>
+            <span class="eyebrow">Мой аккаунт</span>
+            <strong id="my-account-name">—</strong>
+          </div>
+          <span class="my-presence-status" id="my-presence-status">Статус неизвестен</span>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-card"><span>Новые</span><strong id="stat-new">0</strong></div>
+          <div class="stat-card"><span>В работе</span><strong id="stat-progress">0</strong></div>
+          <div class="stat-card"><span>Выполнено сегодня</span><strong id="stat-today">0</strong></div>
+          <div class="stat-card"><span>Выполнено за месяц</span><strong id="stat-month">0</strong></div>
+        </div>
+      </section>
+
+      <section class="admin-dashboard" id="admin-dashboard" hidden>
+        <div class="section-heading">
+          <div><p class="eyebrow">Управление системой</p><h2>Администрирование</h2></div>
+        </div>
+        <div class="admin-actions">
+          <button class="primary-button" id="backup-data">Создать резервную копию</button>
+          <button class="primary-button" id="export-data">Скачать заявки CSV</button>
+        </div>
+        <div class="admin-panel">
+          <h3>Добавить техника</h3>
+          <form id="add-technician-form" class="admin-form">
+            <input name="name" placeholder="Имя техника" required>
+            <input name="login" placeholder="Логин" required>
+            <input name="password" placeholder="Пароль" required>
+            <button class="primary-button" type="submit">Добавить</button>
+          </form>
+        </div>
+        <div class="admin-panel">
+          <h3>Техники и расписание</h3>
+          <div id="admin-technicians"></div>
+        </div>
+      </section>
+
+      <section class="presence-section">
+        <div class="section-heading">
+          <div><p class="eyebrow">Сегодня в техподдержке</p><h2>Кто на месте</h2></div>
+          <span class="updated" id="last-updated">Обновляется автоматически</span>
+        </div>
+        <div class="people-grid" id="people-list"></div>
+      </section>
+
+      <section class="workspace">
+        <div class="section-heading request-heading">
+          <div><p class="eyebrow">Рабочий поток</p><h2>Заявки</h2></div>
+          <div class="filters" id="filters">
+            <button class="filter active" data-filter="all">Все <b id="count-all">0</b></button>
+            <button class="filter" data-filter="new">Новые <b id="count-new">0</b></button>
+            <button class="filter" data-filter="in_progress">В работе <b id="count-progress">0</b></button>
+            <button class="filter" data-filter="done">Готово <b id="count-done">0</b></button>
+          </div>
+        </div>
+        <div class="requests-list" id="requests-list"></div>
+      </section>
+    </main>
+    <footer>
+      <span>Внутренний сервис техникума</span>
+      <span>Данные хранятся на компьютере администратора</span>
+    </footer>
+  </div>
+
+  <dialog id="request-dialog">
+    <form id="request-form">
+      <button type="button" class="close" data-close="request-dialog" aria-label="Закрыть">×</button>
+      <p class="eyebrow">Новая заявка</p>
+      <h2>Опишите, что случилось</h2>
+      <label>Ваше имя<input name="author" placeholder="Например, Елена Соколова" required></label>
+      <label>Кабинет<input name="room" placeholder="Например, 214" required></label>
+      <label>Что нужно сделать<input name="title" placeholder="Например, не работает проектор" required></label>
+      <label>Подробности<textarea name="description" rows="3" placeholder="Добавьте детали, если они важны"></textarea></label>
+      <label>Приоритет<select name="priority"><option>Обычно</option><option>Срочно</option><option>Низкий</option></select></label>
+      <button type="submit" class="primary-button full">Отправить заявку</button>
+    </form>
+  </dialog>
+  <dialog id="login-dialog">
+    <form id="login-form">
+      <button type="button" class="close" data-close="login-dialog" aria-label="Закрыть">×</button>
+      <p class="eyebrow">Доступ технику</p>
+      <h2>Войти в рабочий кабинет</h2>
+      <label>Логин<input name="login" autocomplete="username" placeholder="Введите логин" required></label>
+      <label>Пароль<input type="password" name="password" autocomplete="current-password" placeholder="Введите пароль" required></label>
+      <button type="submit" class="primary-button full">Войти</button>
+    </form>
+  </dialog>
+  <div class="toast" id="toast"></div>
+  <script src="/app.js"></script>
+</body>
+</html>

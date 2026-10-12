@@ -1,0 +1,58 @@
+{
+  "technicians": [
+    {
+      "id": "igordobro",
+      "name": "DobroTex",
+      "role": "Техник",
+      "present": true,
+      "work_status": "free",
+      "status_text": "Готов помочь",
+      "schedule": {
+        "days": [
+          "Пн",
+          "Вт",
+          "Ср",
+          "Чт",
+          "Пт"
+        ],
+        "from": "08:00",
+        "to": "17:00"
+      },
+      "last_status_update": "2026-10-12T15:37:31",
+      "login": "IgorDobro"
+    },
+    {
+      "id": "wapae",
+      "name": "Илья",
+      "role": "Техник",
+      "present": true,
+      "work_status": "free",
+      "status_text": "Готов помочь",
+      "schedule": {
+        "days": [
+          "Пн",
+          "Вт",
+          "Ср",
+          "Чт",
+          "Пт"
+        ],
+        "from": "08:00",
+        "to": "17:00"
+      },
+      "last_status_update": "2026-10-12T15:33:36",
+      "login": "wapae"
+    }
+  ],
+  "requests": [],
+  "next_id": 1,
+  "accounts": {
+    "IgorDobro": {
+      "password": "KompKlass20@@",
+      "id": "igordobro"
+    },
+    "wapae": {
+      "password": "KompKlass20@@",
+      "id": "wapae"
+    }
+  }
+}
